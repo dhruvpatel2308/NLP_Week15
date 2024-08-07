@@ -11,7 +11,7 @@ user_input = st.text_input("You: ","")
 if st.button("Send"):
   if user_input:
     #send the user input to the FastAPI backend
-    response = requests.post('https://',json={'prompt':user_input})
+    response = requests.post('https://dpatel9923-face-expression-prediction.hf.space/prediction',json={'prompt':user_input})
     response_json = response.json()
     bot_response = response_json['response']
     st.text_area("Bot:", bot_response, height = 200)
